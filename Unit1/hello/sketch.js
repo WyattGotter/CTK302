@@ -7,5 +7,5 @@ function draw() {
   background('blue') ;
   fill('white') ;
   textSize(32) ;
-  text("hello world!", 250, 250) ;
+  text("Moon Knight :D", 250, 250) ;
 }
