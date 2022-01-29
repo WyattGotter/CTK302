@@ -4,8 +4,8 @@ function setup() {
 }
 
 function draw() {
-  background('blue') ;
-  fill('white') ;
-  textSize(32) ;
-  text("Moon Knight :D", 250, 250) ;
+  background('green');
+  fill('white');
+  textSize(32);
+  text("Wyatt is cool", 250, 250) ;
 }
