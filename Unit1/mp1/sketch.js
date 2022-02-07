@@ -15,6 +15,6 @@ function draw() {
   arc(width/2, height/2, 200, 200, 215, 135, PIE);
   fill('yellow');
 //if (mouseIsPressed)
-  background('red');
+  //background('red');
 
 }
