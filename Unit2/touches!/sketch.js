@@ -1,11 +1,5 @@
-let numberOfTouches ;
-let song1, song2, song3;
+let numberOfTouches;
 
-function preload() {
-  song1 = loadSound('assets/s1.mp3');
-  song2 = loadSound('assets/s2.mp3');
-  song3 = loadSound('assets/s3.mp3');
-}
 function setup() {
   createCanvas(400, 400);
 }
@@ -15,31 +9,34 @@ function draw() {
   numberOfTouches = touches.length;
   text(numberOfTouches + ' touches', 5, 10);
 
-  switch(numberOfTouches) {
+  switch (numberOfTouches) {
     case 0:
-      text("no one is touching the screen", 5, 22) ;
+      fill('black');
+      text("no one is touching the screen", 5, 22);
       fill('blue');
-      break ;
+      break;
 
-      case 1:
-       text("it's kind of lonely here", 5, 22) ;
-       fill('red');
+    case 1:
+      fill('black');
+      text("it's kind of lonely here", 5, 22);
+      fill('red');
       // put a picture here
 
-      break ;
+      break;
 
-      case 2:
-      text("two fingers are touching the screen", 5, 22) ;
+    case 2:
+      fill('black');
+      text("two fingers are touching the screen", 5, 22);
       fill('green');
-            // put a picture here
-      break ;
+      // put a picture here
+      break;
 
-      case 3:
-     text("three are touching the screen", 5, 22);
-     fill('grey');
-            // put a picture here
-      break ;
-
+    case 3:
+      fill('black');
+      text("three are touching the screen", 5, 22);
+      fill('grey')
+      // put a picture here
+      break;
 
   }
 
