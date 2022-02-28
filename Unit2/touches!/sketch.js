@@ -18,27 +18,25 @@ function draw() {
   switch(numberOfTouches) {
     case 0:
       text("no one is touching the screen", 5, 22) ;
+      fill('blue');
       break ;
 
       case 1:
        text("it's kind of lonely here", 5, 22) ;
-       song1.play();
-
+       fill('red');
       // put a picture here
 
       break ;
 
       case 2:
       text("two fingers are touching the screen", 5, 22) ;
-      song1.pause();
-      song2.play();
+      fill('green');
             // put a picture here
       break ;
 
       case 3:
      text("three are touching the screen", 5, 22);
-     song2.pause();
-     song3.play();
+     fill('grey');
             // put a picture here
       break ;
 
