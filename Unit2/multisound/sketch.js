@@ -1,5 +1,5 @@
 let state = 0
-let song1, song2, song3;
+
 
 function preload() {
   song1 = loadSound('assets/s1.mp3');
