@@ -5,14 +5,14 @@ function preload() {
   song1 = loadSound('assets/s1.mp3');
   song2 = loadSound('assets/s2.mp3');
   song3 = loadSound('assets/s3.mp3');
-  p1 = loadImage("assets/picture1.jpg");
-  p2 = loadImage("assets/picture2.jpg");
-  p3 = loadImage("assets/picture3.jpg");
+  p1 = loadImage("assets/picture1.png");
+  p2 = loadImage("assets/picture2.png");
+  p3 = loadImage("assets/picture3.png");
 }
 
 function setup() {
   createCanvas(500, 500);
-
+//rectMode(CENTER);
 }
 
 function draw() {
@@ -24,8 +24,10 @@ function draw() {
       break;
 
     case 1:
-      background('red');
-      
+    image(p1, 0, 0, 500);
+    //image(ballin, width/2, 100, 100, 100);
+      //background('red');
+
       break;
 
     case 2:
@@ -34,7 +36,7 @@ function draw() {
       break;
 
     case 3:
-      background('blue');
+      image(p2, 0, 0, 500);
       break;
 
     case 4:
@@ -43,7 +45,7 @@ function draw() {
       break;
 
     case 5:
-      background('green');
+      image(p3, 0, 0, 500);
       break;
   }
 }
