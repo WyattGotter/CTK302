@@ -1,5 +1,5 @@
 let state = 0
-
+let timer = 0
 
 function preload() {
   song1 = loadSound('assets/s1.mp3');
@@ -46,6 +46,10 @@ function draw() {
 
     case 5:
       image(p3, 0, 0, 500);
+      timer++;
+      if (timer > 10*60) {
+        timer = 0;
+      state = 0; }
       break;
   }
 }
