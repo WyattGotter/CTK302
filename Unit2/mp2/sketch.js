@@ -5,11 +5,14 @@ function preload() {
   song1 = loadSound('assets/s1.mp3');
   song2 = loadSound('assets/s2.mp3');
   song3 = loadSound('assets/s3.mp3');
-
+  p1 = loadImage("assets/picture1.jpg");
+  p2 = loadImage("assets/picture2.jpg");
+  p3 = loadImage("assets/picture3.jpg");
 }
 
 function setup() {
   createCanvas(500, 500);
+
 }
 
 function draw() {
@@ -22,7 +25,7 @@ function draw() {
 
     case 1:
       background('red');
-      text('listening to song 1', 100, 100);
+      
       break;
 
     case 2:
@@ -50,5 +53,5 @@ function mouseReleased() {
   song1.pause();
   song2.pause();
   song3.pause();
-  
+
 }
