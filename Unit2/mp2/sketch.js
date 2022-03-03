@@ -50,5 +50,5 @@ function mouseReleased() {
   song1.pause();
   song2.pause();
   song3.pause();
-
+  
 }

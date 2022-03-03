@@ -9,12 +9,12 @@ function setup() {
 }
 
 function draw() {
-
   switch (state) {
 
     case 0:
       background("yellow") ;
       text("Why did the chicken cross the road?", 200, 100);
+      text("first line\nsecond line", 100, 300) ;
       break;
 
     case 1:
