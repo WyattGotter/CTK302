@@ -1,3 +1,15 @@
+let cars = []; // declare / init an array
+//let frogPos; // Defines the x and y of the frogs position
+let todd
+let bug
+let excuseme
+let reversetodd
+let state = 0;
+let timer = 0;
+let maxCars = 5;
+let maxTimer = 25;
+let score = 0;
+
 // variables needed for gyroscope
 var beta, gamma; // orientation data
 var x = 0; // acceleration data
