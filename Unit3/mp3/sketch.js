@@ -115,9 +115,9 @@ class Car {
     // initialize your attributes here
     this.v = createVector(random(6), 0);
     this.r = image(bug);
-    // this.g = random(255);
-    // this.b = random(255);
-    // this.o = random(100);
+    this.g = random(255);
+    this.b = random(255);
+    this.o = random(100);
     this.size = random(45, 140);
   }
 
