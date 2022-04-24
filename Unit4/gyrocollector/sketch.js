@@ -40,9 +40,9 @@ function setup() {
   toddPos = createVector(width / 2, height - 80);
 
   // load any images you need
-  reversetodd = loadImage('assets/reversetodd.png');
   todd = loadImage("assets/toddhoward.png");
   bug = loadImage('assets/bug.png');
+  //reversetodd = loadImage('assets/reversetodd.png');
   //winscreen = loadImage('assets/winscreen.png');
   //losescreen = loadImage('assets/losescreen.png');
   //excuseme = loadImage('assets/excuseme.png');
@@ -146,11 +146,11 @@ function Car() {
   this.r = image(bug);
   // this.g = random(255);
   // this.b = random(255);
-  this.a = random(255);  // alpha opacity value for fill!
+//  this.a = random(255);  // alpha opacity value for fill!
 
   // methods
   this.display = function() {
-
+image(bug);
     // maybe use an image here instead!
     // fill(this.r, this.g, this.b, this.a);
     // ellipse(this.pos.x - 50, this.pos.y, 50, 50);
