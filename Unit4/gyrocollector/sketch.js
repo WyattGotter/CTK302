@@ -25,12 +25,6 @@ var bugPos;
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-  reversetodd = loadImage('assets/reversetodd.png');
-  //winscreen = loadImage('assets/winscreen.png');
-  //losescreen = loadImage('assets/losescreen.png');
-  todd = loadImage("assets/toddhoward.png");
-  //excuseme = loadImage('assets/excuseme.png');
-  bug = loadImage('assets/bug.png');
 
   // initialize accelerometer variables
   alpha = 0;
@@ -43,9 +37,15 @@ function setup() {
   }
 
   // initialize the frog's position
-  bugPos = createVector(width / 2, height - 80);
+  toddPos = createVector(width / 2, height - 80);
 
   // load any images you need
+  reversetodd = loadImage('assets/reversetodd.png');
+  todd = loadImage("assets/toddhoward.png");
+  bug = loadImage('assets/bug.png');
+  //winscreen = loadImage('assets/winscreen.png');
+  //losescreen = loadImage('assets/losescreen.png');
+  //excuseme = loadImage('assets/excuseme.png');
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
@@ -54,7 +54,7 @@ function setup() {
 
 function draw() {
 
-  background(reversetodd); // light blue
+  background('grey'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -69,8 +69,9 @@ function draw() {
 
   // draw the FROG
   // image(bunnyImage, 0, 0, 500, 500);
-  fill(todd);
-  ellipse(0, 0, 80, 80);
+  //fill(todd);
+  image(todd, 0, 0, 80, 80);
+  //ellipse(0, 0, 80, 80);
   pop();
 
   // update the frog's position using the accelerometer data
@@ -81,7 +82,7 @@ function draw() {
   for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
-    if (cars[i].pos.dist(bugPos) < 50) {
+    if (cars[i].pos.dist(toddPos) < 50) {
       cars.splice(i, 1);
     }
   }
