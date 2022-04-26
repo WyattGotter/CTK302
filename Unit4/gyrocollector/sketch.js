@@ -7,8 +7,6 @@ var xPosition = 0;
 var yPosition = 0;
 
 // var bunnyImage;
-var toddImage;
-var bugImage;
 var cars = [];
 var frogPos;
 
@@ -32,9 +30,8 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
-  //bunnyImage = loadImage("assets/bunny.jpg");
-  todd = loadImage("assets/toddhoward.png");
-  bug = loadImage("assets/bug.png");
+  toddImage = loadImage("assets/toddhoward.png");
+  bugImage = loadImage('assets/bug.png');
   imageMode(CENTER);
   rectMode(CENTER);
   noStroke();
@@ -57,9 +54,10 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  // image(bunnyImage, 0, 0, 500, 500);
-image(todd);
-  pop();
+  image(toddImage, frogPos.x, frogPos.y, 90, 90);
+  // fill('green');
+  // ellipse(0, 0, 80, 80);
+  // pop();
 
 
   // update the frog's position using the accelerometer data
@@ -75,8 +73,9 @@ image(todd);
     }
   }
 
+  // MORE DECORATIONS - write that pretty ATK type on top.
+
   // Debugging information -- take this out when you're ready for production!
-  // Just a bunch of text commands to display data coming in from addEventListeners
 }
 
 function deviceShaken() {
@@ -124,8 +123,13 @@ function Car() {
   // methods
   this.display = function() {
 
+  // image(bugImage, this.pos.x, this.pos.y, 90, 90);
     // maybe use an image here instead!
-image(bug);
+    fill(this.r, this.g, this.b, this.a);
+    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+
   }
 
   this.drive = function() {
