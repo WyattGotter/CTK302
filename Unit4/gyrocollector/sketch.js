@@ -12,6 +12,7 @@ var cars = [];
 var frogPos;
 var todd;
 var bug;
+var dirt;
 var excuseme;
 var reversetodd;
 var state = 0;
@@ -20,7 +21,9 @@ var maxCars = 5;
 var maxTimer = 25;
 var score = 0;
 
-
+function preload() {
+  todd2 = loadSound('assets/toddhowardvoice2.mp3');
+}
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
@@ -47,7 +50,7 @@ function setup() {
 
 function draw() {
 
-  background('#c6f5ff'); // light blue
+  background('red'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -79,6 +82,7 @@ function draw() {
     cars[i].drive();
     if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);
+      todd2.play();
     }
   }
 
@@ -125,6 +129,7 @@ window.addEventListener('deviceorientation', function(e) {
   alpha = e.alpha;
   beta = e.beta;
   gamma = e.gamma;
+//  getAudioContext().resume();
 });
 
 
@@ -135,10 +140,6 @@ window.addEventListener('devicemotion', function(e) {
   y = e.acceleration.y;
   z = e.acceleration.z;
 });
-
-
-
-
 
 // car class!!
 function Car() {
@@ -153,7 +154,6 @@ function Car() {
 
   // methods
   this.display = function() {
-
     // maybe use an image here instead!
     image(bug, this.pos.x, this.pos.y);
     this.size = random(25, 250);
@@ -161,9 +161,7 @@ function Car() {
     // ellipse(this.pos.x - 50, this.pos.y, 50, 50);
     // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
     // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
-
   }
-
   this.drive = function() {
     this.pos.add(this.vel);
 
@@ -174,4 +172,8 @@ function Car() {
 
   }
 
+}
+
+function touchStarted() {
+  getAudioContext().resume();
 }
