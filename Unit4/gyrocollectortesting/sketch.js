@@ -51,7 +51,7 @@ function setup() {
 
 function draw() {
 
-  background(dirt, windowWidth, windowHeight); // light blue
+  background(dirt, Width, Height); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
