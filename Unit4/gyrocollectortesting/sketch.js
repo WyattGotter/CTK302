@@ -21,7 +21,7 @@ var maxTimer = 25;
 var score = 0;
 
 function preload() {
-  toddhoward2 = loadSound('assets/toddhowardvoice2.mp3');
+  todd2 = loadSound('assets/toddhowardvoice2.mp3');
 }
 function setup() {
 
@@ -81,7 +81,7 @@ function draw() {
     cars[i].drive();
     if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);
-      toddhoward2.play();
+      todd2.play();
     }
   }
 
@@ -139,10 +139,6 @@ window.addEventListener('devicemotion', function(e) {
   z = e.acceleration.z;
 });
 
-
-
-
-
 // car class!!
 function Car() {
   // attributes
@@ -174,4 +170,8 @@ function Car() {
 
   }
 
+}
+
+function touchStarted() {
+  getAudioContext().resume();
 }
