@@ -29,10 +29,12 @@ function setup() {
   todd = loadImage("assets/toddhoward.png");
   excuseme = loadImage('assets/excuseme.png');
   bug = loadImage('assets/bug.png');
-  // Spawn objects
+  // Spawn a bunch of cars
   for (let i = 0; i < 3; i++) {
     cars.push(new Car());
   }
+
+  // initialize the frog's position
   frogPos = createVector(width / 2, height - 100);
 }
 
