@@ -30,6 +30,7 @@ function setup() {
   font1 = loadFont('assets/8bitarcadein.ttf');
   todd = loadImage('assets/toddhoward.png');
   bug = loadImage('assets/bug.png');
+  dirt = loadImage('assets/dirt.png');
   //dirt = loadImage('assets/dirt.png');
   // initialize accelerometer variables
   alpha = 0;
@@ -50,7 +51,7 @@ function setup() {
 }
 
 function draw() {
-
+  
   background('red'); // light blue
 
   // the map command !!!!
