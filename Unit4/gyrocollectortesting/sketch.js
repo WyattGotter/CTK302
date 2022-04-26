@@ -12,6 +12,7 @@ var cars = [];
 var frogPos;
 var todd;
 var bug;
+var dirt;
 var excuseme;
 var reversetodd;
 var state = 0;
