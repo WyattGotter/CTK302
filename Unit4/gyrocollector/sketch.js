@@ -1,3 +1,4 @@
+
 // variables needed for gyroscope
 var beta, gamma; // orientation data
 var x = 0; // acceleration data
@@ -9,12 +10,23 @@ var yPosition = 0;
 // var bunnyImage;
 var cars = [];
 var frogPos;
+var todd;
+var bug;
+var excuseme;
+var reversetodd;
+var state = 0;
+var timer = 0;
+var maxCars = 5;
+var maxTimer = 25;
+var score = 0;
 
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-
+  font1 = loadFont('assets/8bitarcadein.ttf');
+  todd = loadImage('assets/toddhoward.png');
+  bug = loadImage('assets/bug.png');
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
@@ -28,13 +40,9 @@ function setup() {
 
   // initialize the frog's position
   frogPos = createVector(width / 2, height - 80);
-
-  // load any images you need
-  toddImage = loadImage("assets/toddhoward.png");
-  bugImage = loadImage('assets/bug.png');
-  imageMode(CENTER);
-  rectMode(CENTER);
-  noStroke();
+   imageMode(CENTER);
+   rectMode(CENTER);
+   noStroke();
 }
 
 function draw() {
@@ -54,10 +62,11 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  image(toddImage, frogPos.x, frogPos.y, 90, 90);
+  // image(bunnyImage, 0, 0, 500, 500);
+  image(todd, 0, 0, 80, 80);
   // fill('green');
   // ellipse(0, 0, 80, 80);
-  // pop();
+  pop();
 
 
   // update the frog's position using the accelerometer data
@@ -74,8 +83,30 @@ function draw() {
   }
 
   // MORE DECORATIONS - write that pretty ATK type on top.
+  // fill('white');
+  // textSize(40);
+  // textAlign(CENTER);
+  // text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+
 
   // Debugging information -- take this out when you're ready for production!
+  // Just a bunch of text commands to display data coming in from addEventListeners
+  // textAlign(LEFT);
+  // textSize(20);
+  // fill('black');
+  // text("orientation data:", 25, 25);
+  // textSize(15);
+  // text("alpha: " + alpha, 25, 50);
+  // text("beta: " + beta, 25, 70);
+  // text("gamma: " + gamma, 25, 90);
+  // textSize(20);
+  // text("acceleration data:", 25, 125);
+  // textSize(15);
+  // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  // text("y = " + y, 25, 170);
+  // text("z = " + z, 25, 190);
+
+
 }
 
 function deviceShaken() {
@@ -118,17 +149,18 @@ function Car() {
   this.g = random(255);
   this.b = random(255);
   this.a = random(255);  // alpha opacity value for fill!
-
+  this.size = random();
 
   // methods
   this.display = function() {
 
-  // image(bugImage, this.pos.x, this.pos.y, 90, 90);
     // maybe use an image here instead!
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
-    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    image(bug, this.pos.x, this.pos.y);
+    this.size = random(25, 250);
+    // fill(this.r, this.g, this.b, this.a);
+    // ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
 
   }
 
