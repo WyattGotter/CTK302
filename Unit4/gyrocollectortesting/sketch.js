@@ -20,7 +20,9 @@ var maxCars = 5;
 var maxTimer = 25;
 var score = 0;
 
-
+function preload() {
+  toddhoward2 = loadSound('assets/toddhowardvoice2.mp3');
+}
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
@@ -79,6 +81,7 @@ function draw() {
     cars[i].drive();
     if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);
+      toddhoward2.play();
     }
   }
 
@@ -153,7 +156,6 @@ function Car() {
 
   // methods
   this.display = function() {
-
     // maybe use an image here instead!
     image(bug, this.pos.x, this.pos.y);
     this.size = random(25, 250);
@@ -161,9 +163,7 @@ function Car() {
     // ellipse(this.pos.x - 50, this.pos.y, 50, 50);
     // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
     // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
-
   }
-
   this.drive = function() {
     this.pos.add(this.vel);
 
