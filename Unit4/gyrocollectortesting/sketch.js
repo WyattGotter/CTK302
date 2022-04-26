@@ -128,7 +128,7 @@ window.addEventListener('deviceorientation', function(e) {
   alpha = e.alpha;
   beta = e.beta;
   gamma = e.gamma;
-  getAudioContext().resume();
+//  getAudioContext().resume();
 });
 
 
