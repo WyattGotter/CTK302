@@ -1,15 +1,3 @@
-let cars = []; // declare / init an array
-//let frogPos; // Defines the x and y of the frogs position
-let todd
-let bug
-let excuseme
-let reversetodd
-let state = 0;
-let timer = 0;
-let maxCars = 5;
-let maxTimer = 25;
-let score = 0;
-
 // variables needed for gyroscope
 var beta, gamma; // orientation data
 var x = 0; // acceleration data
@@ -20,7 +8,8 @@ var yPosition = 0;
 
 // var bunnyImage;
 var cars = [];
-var bugPos;
+var frogPos;
+
 
 function setup() {
 
@@ -31,21 +20,16 @@ function setup() {
   beta = 0;
   gamma = 0;
 
+
   // spawn a bunch of cars
   for (var i = 0; i < 40; i++) {
     cars.push(new Car());
   }
 
   // initialize the frog's position
-  toddPos = createVector(width / 2, height - 80);
+  frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
-  todd = loadImage("assets/toddhoward.png");
-  bug = loadImage('assets/bug.png');
-  //reversetodd = loadImage('assets/reversetodd.png');
-  //winscreen = loadImage('assets/winscreen.png');
-  //losescreen = loadImage('assets/losescreen.png');
-  //excuseme = loadImage('assets/excuseme.png');
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
@@ -54,13 +38,14 @@ function setup() {
 
 function draw() {
 
-  background('grey'); // light blue
+  background('#c6f5ff'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -18, 18, 0, width);
   yPosition = map(beta, 25, 45, 0, height);
+
 
   // move the frog around the screen
   push(); // before you use translate, rotate, or scale commands, push and then pop after
@@ -69,47 +54,49 @@ function draw() {
 
   // draw the FROG
   // image(bunnyImage, 0, 0, 500, 500);
-  //fill(todd);
-  image(todd, 0, 0, 80, 80);
-  //ellipse(0, 0, 80, 80);
+  fill('green');
+  ellipse(0, 0, 80, 80);
   pop();
 
+
   // update the frog's position using the accelerometer data
-  bugPos.x = xPosition;
-  bugPos.y = yPosition;
+  frogPos.x = xPosition;
+  frogPos.y = yPosition;
 
   // iterate through the car loop to move them and see if we need to delete cars
   for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
-    if (cars[i].pos.dist(toddPos) < 50) {
+    if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);
     }
   }
 
   // MORE DECORATIONS - write that pretty ATK type on top.
-  // fill('white');
-  // textSize(40);
-  // textAlign(CENTER);
-  //text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  fill('white');
+  textSize(40);
+  textAlign(CENTER);
+  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+
 
   // Debugging information -- take this out when you're ready for production!
   // Just a bunch of text commands to display data coming in from addEventListeners
-  //This part of the code is to display the orientation data on the screen, which is not to be included, so that is why I have commented it out of the program.
-  // textAlign(LEFT);
-  // textSize(20);
-  // fill('black');
-  // text("orientation data:", 25, 25);
-  // textSize(15);
-  // text("alpha: " + alpha, 25, 50);
-  // text("beta: " + beta, 25, 70);
-  // text("gamma: " + gamma, 25, 90);
-  // textSize(20);
-  // text("acceleration data:", 25, 125);
-  // textSize(15);
-  // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  // text("y = " + y, 25, 170);
-  // text("z = " + z, 25, 190);
+  textAlign(LEFT);
+  textSize(20);
+  fill('black');
+  text("orientation data:", 25, 25);
+  textSize(15);
+  text("alpha: " + alpha, 25, 50);
+  text("beta: " + beta, 25, 70);
+  text("gamma: " + gamma, 25, 90);
+  textSize(20);
+  text("acceleration data:", 25, 125);
+  textSize(15);
+  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  text("y = " + y, 25, 170);
+  text("z = " + z, 25, 190);
+
+
 }
 
 function deviceShaken() {
@@ -120,6 +107,7 @@ function deviceShaken() {
   }
 }
 
+
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
 
 // Read in accelerometer data
@@ -129,6 +117,7 @@ window.addEventListener('deviceorientation', function(e) {
   gamma = e.gamma;
 });
 
+
 // accelerometer Data
 window.addEventListener('devicemotion', function(e) {
   // get accelerometer values
@@ -137,25 +126,30 @@ window.addEventListener('devicemotion', function(e) {
   z = e.acceleration.z;
 });
 
+
+
+
+
 // car class!!
 function Car() {
   // attributes
   this.pos = createVector(100, 100);
   this.vel = createVector(random(-5, 5), random(-5, 5));
-  //this.r = random(255);
-  this.r = image(bug);
-  // this.g = random(255);
-  // this.b = random(255);
-//  this.a = random(255);  // alpha opacity value for fill!
+  this.r = random(255);
+  this.g = random(255);
+  this.b = random(255);
+  this.a = random(255);  // alpha opacity value for fill!
+
 
   // methods
   this.display = function() {
-image(bug);
+
     // maybe use an image here instead!
-    // fill(this.r, this.g, this.b, this.a);
-    // ellipse(this.pos.x - 50, this.pos.y, 50, 50);
-    // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    // rect(this.pos.x + 17, this.pos.y - 30, 80, 60);
+    fill(this.r, this.g, this.b, this.a);
+    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+
   }
 
   this.drive = function() {
