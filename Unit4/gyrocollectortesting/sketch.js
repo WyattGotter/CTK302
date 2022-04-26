@@ -30,7 +30,7 @@ function setup() {
   font1 = loadFont('assets/8bitarcadein.ttf');
   todd = loadImage('assets/toddhoward.png');
   bug = loadImage('assets/bug.png');
-  dirt = loadImage('assets/dirt.png');
+  //dirt = loadImage('assets/dirt.png');
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
@@ -51,7 +51,7 @@ function setup() {
 
 function draw() {
 
-  background(dirt, Width, Height); // light blue
+  background('red'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
